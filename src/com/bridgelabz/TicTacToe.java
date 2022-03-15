@@ -4,6 +4,18 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+    static char[] board = new char[10];
+
+    static void showBoard() {
+        System.out.println("Current board looks like this");
+        for (int j = 1; j <= 9; j++) {
+            System.out.print(board[j] + " | ");
+            if (j % 3 == 0) {
+                System.out.println();
+            }
+        }
+    }
+
     static void chooseLetter() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Letter entered by Player x or o");
@@ -26,7 +38,6 @@ public class TicTacToe {
     public static void main(String[] args) {
         // welcome to Tic Tac Toe Program.
 
-        char[] board = new char[10];
         int i;
         int j;
         for (i = 0; i <= 9; i++) {
@@ -39,6 +50,7 @@ public class TicTacToe {
             }
         }
         chooseLetter();
+        showBoard();
     }
 
 }
