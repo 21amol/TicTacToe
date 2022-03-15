@@ -1,6 +1,27 @@
 package com.bridgelabz;
 
+import java.util.Scanner;
+
 public class TicTacToe {
+
+    static void chooseLetter() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Letter entered by Player x or o");
+        char player = sc.next().charAt(0);
+        char computer = ' ';
+
+        if (player == 'x') {
+            computer = 'o';
+            System.out.println("Computer choose: " + computer);
+
+        } else {
+            computer = 'x';
+            System.out.println("Computer choose: " + computer);
+        }
+        System.out.println("Player: " + player);
+        System.out.println("Computer: " + computer);
+
+    }
 
     public static void main(String[] args) {
         // welcome to Tic Tac Toe Program.
@@ -17,5 +38,7 @@ public class TicTacToe {
                 System.out.println();
             }
         }
+        chooseLetter();
     }
+
 }
