@@ -16,6 +16,7 @@ public class TicTacToe {
                 if (board[position] == ' ') {
                     System.out.println("Move is possible, position is free");
                     board[position] = player;
+                    // Making Move
                     for (int j = 1; j <= 9; j++) {
                         System.out.print(board[j] + " | ");
                         if (j % 3 == 0) {
