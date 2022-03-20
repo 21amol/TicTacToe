@@ -15,17 +15,23 @@ public class TicTacToe {
             if (position <= 9) {
                 if (board[position] == ' ') {
                     System.out.println("Move is possible, position is free");
+                    board[position] = player;
+                    for (int j = 1; j <= 9; j++) {
+                        System.out.print(board[j] + " | ");
+                        if (j % 3 == 0) {
+                            System.out.println();
+                        }
+                    }
                 } else {
                     System.out.println("Position is already filled, Enter new position");
                 }
-                board[position] = player;
+
             } else if (position > 9) {
                 System.out.println("Enter position from 1 to 9");
             }
             i++;
         }
     }
-
 
     static void showBoard() {
         System.out.println("Current board looks like this");
@@ -71,8 +77,8 @@ public class TicTacToe {
                 System.out.println(" ____________ ");
             }
         }
-        //chooseLetter();
-        //showBoard();
+        chooseLetter();
+        showBoard();
         makeMove();
     }
 
