@@ -4,7 +4,20 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+    static final int HEAD = 1;
+    static final int TAIL = 0;
+
     static char[] board = new char[10];
+
+
+    static void toss() {
+        int toss = (int) Math.floor(Math.random() * 10) % 2;
+        if (toss == HEAD) {
+            System.out.println("Player won and will start start first.");
+        } else {
+            System.out.println("Computer won and will start first");
+        }
+    }
 
 
     static void makeMove() {
@@ -80,6 +93,7 @@ public class TicTacToe {
         }
         chooseLetter();
         showBoard();
+        toss();
         makeMove();
     }
 
