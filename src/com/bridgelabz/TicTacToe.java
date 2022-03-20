@@ -6,6 +6,27 @@ public class TicTacToe {
 
     static char[] board = new char[10];
 
+
+    static void makeMove() {
+
+        for (int i = 1; i <= 9; ) {
+            System.out.println("Enter the position you want to fill (1,2,3,4,5,6,7,8,9): ");
+            int position = sc.nextInt();
+            if (position <= 9) {
+                if (board[position] == ' ') {
+                    System.out.println("Move is possible, position is free");
+                } else {
+                    System.out.println("Position is already filled, Enter new position");
+                }
+                board[position] = player;
+            } else if (position > 9) {
+                System.out.println("Enter position from 1 to 9");
+            }
+            i++;
+        }
+    }
+
+
     static void showBoard() {
         System.out.println("Current board looks like this");
         for (int j = 1; j <= 9; j++) {
@@ -17,9 +38,8 @@ public class TicTacToe {
     }
 
     static void chooseLetter() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Letter entered by Player x or o");
-        char player = sc.next().charAt(0);
+        player = sc.next().charAt(0);
         char computer = ' ';
 
         if (player == 'x') {
@@ -35,22 +55,25 @@ public class TicTacToe {
 
     }
 
+    static Scanner sc = new Scanner(System.in);
+    static char player;
+
     public static void main(String[] args) {
         // welcome to Tic Tac Toe Program.
 
-        int i;
-        int j;
-        for (i = 0; i <= 9; i++) {
+        for (int i = 0; i <= 9; i++) {
             board[i] = ' ';
         }
-        for (j = 1; j <= 9; j++) {
+        for (int j = 1; j <= 9; j++) {
             System.out.print(board[j] + " | ");
             if (j % 3 == 0) {
                 System.out.println();
+                System.out.println(" ____________ ");
             }
         }
-        chooseLetter();
-        showBoard();
+        //chooseLetter();
+        //showBoard();
+        makeMove();
     }
 
 }
