@@ -9,6 +9,41 @@ public class TicTacToe {
 
     static char[] board = new char[10];
 
+    static void gameCheck() {
+        int won = 0;
+        for (int i = 1; i <= 9; i++) {
+            // if(i==1 || i==2 || i==3) {
+            if (board[i] == board[i + 1] && board[i] == board[i + 2] && board[i] == player) {
+                System.out.println("Player Won");
+                won = 1;
+                break;
+            } else if (board[i] == board[i + 3] && board[i] == board[i + 6] && board[i] == player) {
+                System.out.println("Player Won");
+                won = 1;
+                break;
+            } else if (board[i] == board[i + 4] && board[i] == board[i + 8] && board[i] == player) {
+                System.out.println("Player Won");
+                won = 1;
+                break;
+            } else if (board[i] == board[i + 1] && board[i] == board[i + 2] && board[i] == computer) {
+                System.out.println("Computer Won");
+                won = 2;
+                break;
+            } else if (board[i] == board[i + 3] && board[i] == board[i + 6] && board[i] == computer) {
+                System.out.println("Computer Won");
+                won = 2;
+                break;
+            } else if (board[i] == board[i + 4] && board[i] == board[i + 8] && board[i] == computer) {
+                System.out.println("Computer Won");
+                won = 2;
+                break;
+            }
+            if (won == 0) {
+                System.out.println("Game is still Onn...");
+            }
+        }
+    }
+
 
     static void toss() {
         int toss = (int) Math.floor(Math.random() * 10) % 2;
@@ -77,6 +112,7 @@ public class TicTacToe {
 
     static Scanner sc = new Scanner(System.in);
     static char player;
+    static char computer;
 
     public static void main(String[] args) {
         // welcome to Tic Tac Toe Program.
@@ -95,6 +131,7 @@ public class TicTacToe {
         showBoard();
         toss();
         makeMove();
+        gameCheck();
     }
 
 }
