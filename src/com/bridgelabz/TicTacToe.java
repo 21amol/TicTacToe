@@ -6,6 +6,7 @@ public class TicTacToe {
 
     static final int HEAD = 1;
     static final int TAIL = 0;
+    static int toss;
 
     static char[] board = new char[10];
 
@@ -32,7 +33,8 @@ public class TicTacToe {
                     won = 1;
                     break;
 
-                } else if (board[i] == board[i + 3] && board[i] == board[i + 6] && board[i] == computer) {
+                }
+                if (board[i] == board[i + 3] && board[i] == board[i + 6] && board[i] == computer) {
                     System.out.println("Player Won");
                     won = 2;
                     break;
@@ -44,7 +46,8 @@ public class TicTacToe {
                     System.out.println("Player Won");
                     won = 1;
                     break;
-                } else if (board[i] == board[i + 1] && board[i] == board[i + 2] && board[i] == computer) {
+                }
+                if (board[i] == board[i + 1] && board[i] == board[i + 2] && board[i] == computer) {
                     System.out.println("Computer Won");
                     won = 2;
                     break;
@@ -52,10 +55,11 @@ public class TicTacToe {
             }
             if (i == 1) {
                 if (board[i] == board[i + 4] && board[i] == board[i + 8] && board[i] == player) {
-                    System.out.println("Computer Won");
+                    System.out.println("Player Won");
                     won = 1;
                     break;
-                } else if (board[i] == board[i + 4] && board[i] == board[i + 8] && board[i] == computer) {
+                }
+                if (board[i] == board[i + 4] && board[i] == board[i + 8] && board[i] == computer) {
                     System.out.println("Computer Won");
                     won = 2;
                     break;
@@ -66,7 +70,8 @@ public class TicTacToe {
                     System.out.println("Computer Won");
                     won = 1;
                     break;
-                } else if (board[i] == board[i + 2] && board[i] == board[i + 4] && board[i] == computer) {
+                }
+                if (board[i] == board[i + 2] && board[i] == board[i + 4] && board[i] == computer) {
                     System.out.println("Computer Won");
                     won = 2;
                     break;
@@ -94,19 +99,19 @@ public class TicTacToe {
     static void makeMove() {
 
         //    for (int i = 1; i <= 9; ) {
-        System.out.println("Enter the position you want to fill (1,2,3,4,5,6,7,8,9): ");
+        System.out.println("Enter the position to be filled (1,2,3,4,5,6,7,8,9): ");
         int position = sc.nextInt();
         if (position <= 9) {
             if (board[position] == ' ') {
                 System.out.println("Move is possible, position is free");
                 board[position] = player;
                 // Making Move
-                for (int j = 1; j <= 9; j++) {
+         /*       for (int j = 1; j <= 9; j++) {
                     System.out.print(board[j] + " | ");
                     if (j % 3 == 0) {
                         System.out.println();
                     }
-                }
+                }   */
             } else {
                 System.out.println("Position is already filled, Enter new position");
             }
@@ -166,10 +171,25 @@ public class TicTacToe {
         chooseLetter();
         showBoard();
         toss();
-        makeMove();
-        showBoard();
-        gameCheck();
-        compTurn();
+        int i = 0;
+        while (i <= 9) {
+            makeMove();
+            showBoard();
+            gameCheck();
+            compTurn();
+            showBoard();
+            gameCheck();
+            i++;
+        }
+        //  chooseLetter();
+        // showBoard();
+        // toss();
+        //  makeMove();
+        //showBoard();
+        //gameCheck();
+        // compTurn();
+        // showBoard();
+        // gameCheck();
     }
 
 }
